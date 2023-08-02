@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recipe Manager</title>
+</head>
+<body>
+    <h1>Recipe Manager</h1>
+    <ul>
+        {% for recipe in recipes %}
+            <li>{{ recipe.name }} - {{ recipe.description }} - {{ recipe.ingredients }}</li>
+            <a href="{% url 'edit_recipe' recipe.id %}">Edit</a>
+            <a href="{% url 'delete_recipe' recipe.id %}">Delete</a>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'add_recipe' %}">Add Recipe</a>
+</body>
+</html>
